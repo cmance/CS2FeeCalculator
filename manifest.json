@@ -1,0 +1,35 @@
+{
+    "name": "CS2 Skinport Fee Calculator",
+    "description": "Calculates the fees on Skinport.com",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "action": {
+        "default_icon": "images/spfbig.png"
+    },
+    "icons": {
+        "16": "images/spfbig.png",
+        "48": "images/spfbig.png",
+        "128": "images/spfbig.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["scripts/content.js"],
+            "matches": [
+                "https://skinport.com/item/*",
+                "https://skinport.com/item/*/*"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "webNavigation",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://skinport.com/*"
+    ]
+}
